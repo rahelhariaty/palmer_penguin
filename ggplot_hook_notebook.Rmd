@@ -1,0 +1,52 @@
+---
+title: "Pengguin Palmer Analytics"
+author: "Rahel"
+date: "2025-11-03"
+output: html_document
+---
+
+###  Setting up my environment
+Notes : setting up my R environment by loading the 'tidyverse' and 'palmerpenguins' packages
+
+
+```{r loading packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+Corelation between Average body mass and flipper length among penguins in Palmer Island
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data=penguins)+
+  geom_smooth(mapping=aes(x=flipper_length_mm, y=body_mass_g))+
+  geom_point(mapping=aes(x=flipper_length_mm, y=body_mass_g))
+```
+
+Visualize the difference corelation body mass and flipper length across different three different species, chinstrap, gentoo, and adelie.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data=penguins)+
+  geom_point(mapping=aes(x=flipper_length_mm, y=body_mass_g, color=species,shape=species))
+```
+
+Showing penguin distribution on different sex clustering 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data=penguins,aes(x=flipper_length_mm,y=body_mass_g))+
+  geom_point(aes(color=species,
+                 shape=species)) +
+  facet_wrap(~sex)
+```
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
